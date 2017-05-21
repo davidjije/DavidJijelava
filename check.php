@@ -19,7 +19,7 @@
     $result = mysqli_query($conn, $query);
     $count = mysqli_num_rows($result);
 
-    //if correct, user will be redirected to the home page
+    //if username is correct, user will be redirected to the home page
     if($count){
       session_start();
       $_SESSION['username']  = $username;
@@ -30,12 +30,33 @@
       </SCRIPT>");
     }
 
-    //if it's incorrect, alert the username
+    //check if he typed not username, but email
     else {
-      echo ("<SCRIPT LANGUAGE='JavaScript'>
-      window.alert('Incorrect username and password')
-      window.location.href='login.php';
-      </SCRIPT>");
+      $query = "SELECT * FROM users WHERE email = '$username' AND
+      password = '$password' ";
+      $result = mysqli_query($conn,$query);
+      $count = mysqli_num_rows($result);
+
+      //if email is correct, redirect user to home page and give him session
+      if($count){
+        $row = mysqli_fetch_assoc($result);
+        $username = $row['username'];
+        session_start();
+        $_SESSION['username']  = $username;
+        $_SESSION['last_activity'] = time();
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+        window.alert('Hello ".$username." ')
+        window.location.href='index.php';
+        </SCRIPT>");
+      }
+
+      //if username or password is incorrect, alert the username
+      else {
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+        window.alert('Incorrect username and password')
+        window.location.href='login.php';
+        </SCRIPT>");
+      }
     }
   }
  ?>

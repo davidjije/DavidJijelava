@@ -31,7 +31,7 @@
           <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
         <form class="login-form" method="post" action="check.php">
-          <input type="text" name="username" placeholder="username"/>
+          <input type="text" name="username" placeholder="username or email"/>
           <input type="password" name="password" placeholder="password"/>
           <input type="submit" name="login" class="rgst" name="login" value="LOGIN">
           <p class="message">Not registered? <a href="registration.php">

@@ -18,7 +18,7 @@
 
   //calling function below.
   else{
-    if(checkIfUsernameExists($username,$conn)) {
+    if(checkIfUsernameExists($username,$conn) && checkIfEmailExists($email, $conn)) {
       $query = "INSERT INTO users (username,password,email,course,faculty)
       VALUES ('$username', '$password', '$email', '$course', '$faculty')";
       if(!mysqli_query($conn,$query)){
@@ -31,9 +31,15 @@
         </SCRIPT>");
       }
     }
-    else {
+    else if(!checkIfUsernameExists($username, $conn)){
       echo ("<SCRIPT LANGUAGE='JavaScript'>
       window.alert('Username already exists, please try other')
+      window.location.href='registration.php';
+      </SCRIPT>");
+    }
+    else {
+      echo ("<SCRIPT LANGUAGE='JavaScript'>
+      window.alert('Email already exists, please try other')
       window.location.href='registration.php';
       </SCRIPT>");
     }
@@ -50,4 +56,17 @@
       return true;
     }
   }
+
+  //this function checks whether email alreadi exists or not
+  function checkIfEmailExists($mEmail, $mConn){
+    $mQuery = "SELECT * FROM users WHERE email = '$mEmail'";
+    $mResult = mysqli_query($mConn,$mQuery);
+    if(mysqli_num_rows($mResult)){
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
 ?>
