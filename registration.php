@@ -16,13 +16,6 @@
   <body>
     <div class="login-page">
       <div class="form">
-        <form class="register-form">
-          <input type="text" placeholder="name"/>
-          <input type="password" placeholder="password"/>
-          <input type="text" placeholder="email address"/>
-          <button>create</button>
-          <p class="message">Already registered? <a href="#">Sign In</a></p>
-        </form>
         <form class="login-form" action="insert.php" method="post">
           <input type="text" name="username" placeholder="username"/>
           <input type="text" name="email" placeholder="email">
@@ -44,7 +37,6 @@
             <option value="CSL">CSL</option>
           </select>
           <input type="submit" class="rgst" name="register" value="REGISTER">
-
         </form>
       </div>
     </div>

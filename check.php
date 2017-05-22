@@ -1,5 +1,6 @@
 <?php
   include 'connection.php';
+  include 'functions.php';
 
   //Checking whether user submitted login form or not
   if(isset($_POST['login'])){
@@ -14,8 +15,9 @@
 
   //if everything is allright, let's check if username and password are correct
   else {
+    $encPassword = encryptPassword($password);
     $query = "SELECT * FROM users WHERE username = '$username' AND
-    password = '$password' ";
+    password = '$encPassword' ";
     $result = mysqli_query($conn, $query);
     $count = mysqli_num_rows($result);
 
@@ -33,7 +35,7 @@
     //check if he typed not username, but email
     else {
       $query = "SELECT * FROM users WHERE email = '$username' AND
-      password = '$password' ";
+      password = '$encPassword' ";
       $result = mysqli_query($conn,$query);
       $count = mysqli_num_rows($result);
 

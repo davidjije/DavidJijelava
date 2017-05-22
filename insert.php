@@ -1,5 +1,6 @@
 <?php
   include 'connection.php';
+  include 'functions.php';
 
   //Check if user submitted registration form
   if (isset($_POST['register'])) {
@@ -19,8 +20,9 @@
   //calling function below.
   else{
     if(checkIfUsernameExists($username,$conn) && checkIfEmailExists($email, $conn)) {
+      $encPassword = encryptPassword($password);
       $query = "INSERT INTO users (username,password,email,course,faculty)
-      VALUES ('$username', '$password', '$email', '$course', '$faculty')";
+      VALUES ('$username', '$encPassword', '$email', '$course', '$faculty')";
       if(!mysqli_query($conn,$query)){
         die('Error:'.mysqli_error($conn));
       }
