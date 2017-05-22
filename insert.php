@@ -7,6 +7,7 @@
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $repeatPassword = mysqli_real_escape_string($conn, $_POST['repeatPassword']);
     $course = mysqli_real_escape_string($conn, $_POST['course']);
     $faculty = mysqli_real_escape_string($conn, $_POST['faculty']);
   }
@@ -17,9 +18,40 @@
        header('Location: registration.php');
      }
 
-  //calling function below.
+  //check if two typed passwords match
+  else if($password != $repeatPassword){
+    echo ("<SCRIPT LANGUAGE='JavaScript'>
+    window.alert('These two passwords doesn't match')
+    window.location.href='registration.php';
+    </SCRIPT>");
+  }
+  
+  //calling functions below.
   else{
-    if(checkIfUsernameExists($username,$conn) && checkIfEmailExists($email, $conn)) {
+
+    if(!validateEmail($email)){
+      echo ("<SCRIPT LANGUAGE='JavaScript'>
+      window.alert('Invalid email adress')
+      window.location.href='registration.php';
+      </SCRIPT>");
+    }
+
+    else if(!validateUsername($username)){
+      echo ("<SCRIPT LANGUAGE='JavaScript'>
+      window.alert('Username length must be at least 4')
+      window.location.href='registration.php';
+      </SCRIPT>");
+    }
+
+    else if(validatePassword($password) != 1){
+      $error = validatePassword($password);
+      echo ("<SCRIPT LANGUAGE='JavaScript'>
+      window.alert('$error')
+      window.location.href='registration.php';
+      </SCRIPT>");
+    }
+
+    else if(checkIfUsernameExists($username,$conn) && checkIfEmailExists($email, $conn)) {
       $encPassword = encryptPassword($password);
       $query = "INSERT INTO users (username,password,email,course,faculty)
       VALUES ('$username', '$encPassword', '$email', '$course', '$faculty')";
