@@ -9,8 +9,23 @@ include 'lastActivity.php';
 <!DOCTYPE html>
 <html>
   <head>
+    <style media="screen">
+      .myContainer{
+        height: auto;
+        width:500px;
+        margin: 100px;
+        margin-left: 600px;
+        border: 1px solid black;
+      }
+
+      .myContainer p{
+        padding: 50px;
+      }
+    </style>
     <meta charset="utf-8">
     <title>CU Blog</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -27,14 +42,13 @@ include 'lastActivity.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="css/demo.css">
 	  <link rel="stylesheet" href="css/footer-distributed.css">
 	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
   </head>
   <body>
-    <header>
+    <header style="margin-top: -100px; margin-bottom: 0px">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -70,6 +84,11 @@ include 'lastActivity.php';
 
 
     <!-- Content here!!!! -->
+    <div class="myContainer">
+      <p>Here goes the text.Here goes the text.
+      </p>
+    </div>
+
 
 
 

@@ -1,4 +1,5 @@
 <?php
+include 'connection.php';
 
   //this function encrypts passwords
   function encryptPassword($mPassword){

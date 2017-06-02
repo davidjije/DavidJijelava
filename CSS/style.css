@@ -79,7 +79,7 @@ select {
   font-size: 12px;
 }
 .form .message a {
-  color: #4CAF50;
+  color: #00BFFF;
   text-decoration: none;
 }
 .form .register-form {
@@ -120,5 +120,4 @@ select {
 }
 body {
   background: #87CEEB; /* fallback for old browsers */
-
 }
