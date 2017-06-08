@@ -25,7 +25,7 @@
     window.location.href='registration.php';
     </SCRIPT>");
   }
-  
+
   //calling functions below.
   else{
 

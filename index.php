@@ -91,6 +91,7 @@ include 'connection.php';
             <ul class="nav navbar-nav">
               <li><a href="index.php">Home</a></li>
               <li><a href="about.php">About</a></li>
+              <li><a href="createPost.php">Create Post</a></li>
             </ul>
             <form class="navbar-form navbar-left">
               <div class="form-group">
@@ -137,13 +138,23 @@ include 'connection.php';
 
     if($count){
       while($row = mysqli_fetch_assoc($result)){
+        $string = $row['text'];
+
+        //if number of characters exceedes 500 symbols, add read more button.
+        if (strlen($string) > 500)
+        {
+          $trimstring = "<p class='article_content'>".
+          substr($string, 0, 500)."...".
+          "<a href='' class='read_more'>Read more...</a></p>";
+          } 
+        else {
+        $trimstring = $string;
+          }
         echo "<div class='main_container'>
           <div class='articl'>
             <div class='author_name'>$row[user_username]</div>
               <div class='content'>
-                <p class='article_content'>$row[text]</p>
-
-                <a href='' class='read_more'>Read more...</a>
+                $trimstring
               </div>
             </div>
           </div>";
