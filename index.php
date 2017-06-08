@@ -4,6 +4,7 @@ if (!$_SESSION['username']) {
   header("Location: login.php");
 }
 include 'lastActivity.php';
+include 'connection.php';
  ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,29 @@ include 'lastActivity.php';
       .myContainer p{
         padding: 50px;
       }
+
+      .articl {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        /*margin-bottom: 45px;*/
+        margin: 0 auto 45px;
+      }
+
+      .content {
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      .read_more {
+        float: right;
+      }
+
+      .author_name {
+        margin-bottom: 10px;
+        margin-left: 5px;
+      }
+
     </style>
     <meta charset="utf-8">
     <title>CU Blog</title>
@@ -82,15 +106,51 @@ include 'lastActivity.php';
       </nav>
     </header>
 
-
     <!-- Content here!!!! -->
-    <div class="myContainer">
-      <p>Here goes the text.Here goes the text.
-      </p>
-    </div>
+      <!-- <div class="main_container">
+        <div class="articl">
+          <div class="author_name">asd ads</div>
+            <div class="content">
+              <p class="article_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+              <a href="" class="read_more">Read more...</a>
+            </div>
+          </div>
+        </div> -->
+
+    <?php
+    $username = $_SESSION['username'];
+    $query = "SELECT * FROM users WHERE username = '$username' ";
+    $result = mysqli_query($conn,$query);
+    $row = mysqli_fetch_assoc($result);
+    $course = $row['course'];
+    $faculty = $row['faculty'];
+    $query = "SELECT * FROM posts WHERE user_course = '$course' AND user_faculty = '$faculty' ";
+    $result = mysqli_query($conn, $query);
+    $count = mysqli_num_rows($result);
 
 
+    if($count){
+      while($row = mysqli_fetch_assoc($result)){
+        echo "<div class='main_container'>
+          <div class='articl'>
+            <div class='author_name'>$row[user_username]</div>
+              <div class='content'>
+                <p class='article_content'>$row[text]</p>
 
+                <a href='' class='read_more'>Read more...</a>
+              </div>
+            </div>
+          </div>";
+      }
+
+    }
+     ?>
 
 		<footer class="footer-distributed">
 
