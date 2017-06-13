@@ -54,7 +54,7 @@ include 'header.php';
             }
           echo "<div class='row ch_elm'><div class='main_container'>
             <div class='articl'>
-              <div class='author_name'>$row[user_username]</div>
+              <div class='author_name'><b>$row[user_username]</b></div>
                 <div class='content'>
                   $trimstring
                 </div>

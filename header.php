@@ -23,6 +23,8 @@
       }
 
       .content {
+        background-color: #DCDCDC;
+        border-radius: 10px;
         border: 1px solid black;
         padding: 10px;
       }
