@@ -23,9 +23,15 @@
 
     //if username is correct, user will be redirected to the home page
     if($count){
+      $row = mysqli_fetch_assoc($result);
       session_start();
       $_SESSION['username']  = $username;
       $_SESSION['last_activity'] = time();
+
+      if($row['priority'] == 1){
+        $_SESSION['manager'] = 1;
+      }
+
       echo ("<SCRIPT LANGUAGE='JavaScript'>
       window.alert('Hello ".$username." ')
       window.location.href='index.php';
@@ -46,6 +52,11 @@
         session_start();
         $_SESSION['username']  = $username;
         $_SESSION['last_activity'] = time();
+
+        if($row['priority'] == 1){
+          $_SESSION['manager'] = 1;
+        }
+
         echo ("<SCRIPT LANGUAGE='JavaScript'>
         window.alert('Hello ".$username." ')
         window.location.href='index.php';

@@ -6,7 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Login Into CU Blog</title>
+    <title>Create post</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" charset="utf-8"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>

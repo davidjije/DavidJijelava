@@ -1,5 +1,6 @@
 
 <?php
+  session_start();
   include 'header.php';
   include 'connection.php';
   $post_id = $_GET['id'];
@@ -20,6 +21,10 @@
   else{
     $row = mysqli_fetch_assoc($result);
     $text = $row['text'];
+    if (isset($_SESSION['manager'])) {
+      $text .= "<br><a href='delete.php?id=$row[id]'
+      style='color:red; float:right'>Delete</a>";
+    }
     echo "<div class='main_container'>
             <div class='articl'>
               <div class='author_name'><b>$row[user_username]</b></div>

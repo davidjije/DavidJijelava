@@ -34,6 +34,9 @@ include 'header.php';
       $course = $row['course'];
       $faculty = $row['faculty'];
       $query = "SELECT * FROM posts WHERE user_course = '$course' AND user_faculty = '$faculty' ";
+      if(isset($_SESSION['manager'])){
+        $query = "SELECT * FROM posts WHERE user_faculty = '$faculty' ";
+      }
       $result = mysqli_query($conn, $query);
       $count = mysqli_num_rows($result);
 
@@ -52,6 +55,10 @@ include 'header.php';
           else {
           $trimstring = $string;
             }
+
+          if (isset($_SESSION['manager'])) {
+            $trimstring .= "<a href='delete.php?id=$row[id]' style='color:red;'>Delete</a>";
+          }
           echo "<div class='row ch_elm'><div class='main_container'>
             <div class='articl'>
               <div class='author_name'><b>$row[user_username]</b></div>
@@ -61,7 +68,6 @@ include 'header.php';
               </div>
             </div></div>";
         }
-
       }
      ?>
 
