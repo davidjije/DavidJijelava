@@ -1,6 +1,11 @@
 
 <?php
   include 'connection.php';
+
+  session_start();
+  if(isset($_SESSION['username'])){
+    header("Location: index.php");
+  }
  ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +21,7 @@
     <div class="login-page">
       <div class="form">
         <form class="login-form" action="insert.php" method="post">
-          <input type="text" name="username" placeholder="username"/>
+          <input type="text" name="username" placeholder="username" required/>
           <input type="text" name="email" placeholder="email">
           <input type="password" name="password" placeholder="password"/>
           <input type="password" name="repeatPassword" placeholder="repeat password">

@@ -3,10 +3,10 @@
 
    <div class="footer-right">
 
-     <a href="#"><i class="fa fa-facebook"></i></a>
-     <a href="#"><i class="fa fa-twitter"></i></a>
+     <a href="https://www.facebook.com/david.jije"><i class="fa fa-facebook"></i></a>
+     <!-- <a href="#"><i class="fa fa-twitter"></i></a>
      <a href="#"><i class="fa fa-linkedin"></i></a>
-     <a href="#"><i class="fa fa-github"></i></a>
+     <a href="#"><i class="fa fa-github"></i></a> -->
 
    </div>
 
@@ -16,8 +16,6 @@
        <a href="index.php">Home</a>
        ·
        <a href="about.php">About</a>
-       ·
-       <a href="#">Something</a>
 
      </p>
 

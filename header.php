@@ -95,13 +95,14 @@
               <li><a href="about.php">About</a></li>
               <li><a href="createPost.php">Create Post</a></li>
             </ul>
-            <form class="navbar-form navbar-left">
+            <!-- <form class="navbar-form navbar-left">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
             <ul class="nav navbar-nav navbar-right">
+              <li><a href="changePassword.php">Change Password</a></li>
               <li><a href="logout.php">Log Out</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->

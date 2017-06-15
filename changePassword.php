@@ -1,12 +1,12 @@
-
 <?php
   include 'connection.php';
 
   session_start();
   if(!isset($_SESSION['username'])){
-    header("Location: index.php");
+    header("Location: login.php");
   }
  ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,9 +20,11 @@
   <body>
     <div class="login-page">
       <div class="form">
-        <form class="login-form" action="insertPost.php" method="post">
-          <textarea name="text" rows="8" cols="80" style="width:250px;"></textarea>
-          <input type="submit" class="rgst" name="post" value="POST">
+        <form class="login-form" action="updatePassword.php" method="post">
+          <input type="password" name="oldPassword" placeholder="Old Password">
+          <input type="password" name="newPassword" placeholder="New Password">
+          <input type="password" name="repeatPassword" placeholder="Repeat New Password">
+          <input type="submit" class="rgst" name="changePassword" value="Change Password">
         </form>
       </div>
     </div>
