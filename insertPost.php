@@ -30,6 +30,11 @@ else{
 
   $user_id = $row['id'];
   $user_course = $row['course'];
+
+  if(isset($_SESSION['manager'])){
+    $user_course = 5;
+  }
+
   $user_faculty = $row['faculty'];
   $date = date("d-m-Y h:i");
 

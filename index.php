@@ -33,7 +33,8 @@ include 'header.php';
       $row = mysqli_fetch_assoc($result);
       $course = $row['course'];
       $faculty = $row['faculty'];
-      $query = "SELECT * FROM posts WHERE user_course = '$course' AND user_faculty = '$faculty' ";
+      $query = "SELECT * FROM posts WHERE (user_course = '$course' OR user_course = 5)
+      AND user_faculty = '$faculty' ";
       if(isset($_SESSION['manager'])){
         $query = "SELECT * FROM posts WHERE user_faculty = '$faculty' ";
       }

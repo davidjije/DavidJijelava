@@ -39,6 +39,7 @@
       }
 
       .ch_elm {
+        height: 300px;
         float: left;
         margin: 5px 10px 0px 10px;
       }
