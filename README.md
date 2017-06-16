@@ -2,6 +2,7 @@
 აქ კი მარტივად ავხსნი, თუ რა პაროლები აქვთ მათ.
 
 USERS:
+
   username - "faculty"_"course" - მაგ: cst_1
   
   password - "faculty""faculty"1 - მაგ: cstcst1
@@ -10,6 +11,7 @@ USERS:
  
 
 MANAGERS:
+
   username - "faculty"_manager - მაგ: cst_manager
   
   password - "faculty"manager1 - მაგ: cstmanager1
