@@ -1,6 +1,8 @@
 <?php
   include 'connection.php';
 
+  // if username is not authorised and trying manually to reach this page,
+  // redirect to login.php.
   session_start();
   if(!isset($_SESSION['username'])){
     header("Location: login.php");

@@ -25,8 +25,11 @@ include 'header.php';
         </div> -->
 
 
-        <div class="container-fluid" style="margin-bottom: 150px">
-           <?php
+  <div class="container-fluid" style="margin-bottom: 150px">
+
+    <?php
+
+      //taking posts from Database.
       $username = $_SESSION['username'];
       $query = "SELECT * FROM users WHERE username = '$username' ";
       $result = mysqli_query($conn,$query);
@@ -41,7 +44,7 @@ include 'header.php';
       $result = mysqli_query($conn, $query);
       $count = mysqli_num_rows($result);
 
-
+      //drawing posts.
       if($count){
         while($row = mysqli_fetch_assoc($result)){
           $string = $row['text'];
